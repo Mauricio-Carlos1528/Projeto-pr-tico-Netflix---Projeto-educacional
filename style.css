@@ -1,0 +1,212 @@
+/* ===========================
+   VARIÁVEIS E RESET
+   =========================== */
+
+:root {
+  --netflix-black: #141414;
+  --netflix-red: #e50914;
+  --netflix-red-hover: #f40612;
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --border-color: #404040;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Trebuchet MS, sans-serif;
+  background-color: var(--netflix-black);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Tema claro: sobrescreve variáveis quando `body[data-theme="light"]` é aplicado. */
+body[data-theme="light"] {
+  --netflix-black: #f4f4f4;
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --border-color: #dddddd;
+  --netflix-red: #d62828;
+}
+
+/* ===========================
+   HEADER
+   =========================== */
+
+header {
+  background: linear-gradient(180deg, var(--netflix-black) 0%, rgba(20, 20, 20, 0.8) 100%);
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 60px;
+  position: relative;
+}
+
+header h1 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  background: linear-gradient(135deg, var(--netflix-red), #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInDown 0.8s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botão de alternância de tema */
+#theme-toggle {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+#theme-toggle:hover { background: rgba(255,255,255,0.03); transform: translateY(-1px); }
+
+/* ===========================
+   MAIN
+   =========================== */
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===========================
+   SEÇÃO DE PERFIS
+   =========================== */
+
+.profiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  margin-bottom: 80px;
+  animation: fadeIn 1s ease 0.3s both;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ===========================
+   CARD DE PERFIL
+   =========================== */
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition);
+  transform-origin: center;
+}
+
+.profile:hover { transform: scale(1.05); }
+
+.profile figure {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: var(--transition);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+.profile:hover img {
+  border-color: var(--netflix-red);
+  box-shadow: 0 12px 24px rgba(229, 9, 20, 0.4);
+  transform: scale(0.98);
+}
+
+.profile figcaption {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.profile:hover figcaption { color: var(--netflix-red); transform: translateY(-5px); font-size: 1.05rem; }
+
+/* ===========================
+   FOOTER
+   =========================== */
+
+footer {
+  background: var(--netflix-black);
+  border-top: 1px solid var(--border-color);
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 80px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+footer p { margin: 0; transition: var(--transition); }
+footer p:hover { color: var(--netflix-red); }
+
+/* ===========================
+   RESPONSIVO - TABLETS
+   =========================== */
+
+@media (max-width: 768px) {
+  header h1 { font-size: 2rem; }
+  .profiles { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 30px; }
+  .profile figcaption { font-size: 0.9rem; }
+  #theme-toggle { right: 14px; top: 14px; }
+}
+
+/* ===========================
+   RESPONSIVO - MOBILE
+   =========================== */
+
+@media (max-width: 480px) {
+  header { padding: 30px 15px; margin-bottom: 40px; }
+  header h1 { font-size: 1.5rem; }
+  .profiles { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 20px; margin-bottom: 60px; }
+  main { padding: 0 15px; }
+  footer { padding: 30px 15px; margin-top: 60px; }
+  .profile figcaption { font-size: 0.85rem; }
+  #theme-toggle { right: 10px; top: 10px; padding: 5px 8px; }
+}
+
+/* ===========================
+   ACESSIBILIDADE
+   =========================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* ===========================
+   FOCUS ESTADOS (Acessibilidade)
+   =========================== */
+
+.profile:focus-within img, .profile:focus-within figcaption { outline: 2px solid var(--netflix-red); outline-offset: 2px; }
+
