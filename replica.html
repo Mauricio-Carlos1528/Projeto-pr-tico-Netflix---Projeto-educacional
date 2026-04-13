@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Netflix — Replica</title>
+  <link rel="stylesheet" href="css/replica.css" />
+</head>
+<body>
+  <header class="replica-header">
+    <div class="container">
+      <div class="brand">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" />
+      </div>
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="#">Séries</a></li>
+          <li><a href="#">Filmes</a></li>
+          <li><a href="#">Minha lista</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="search" aria-label="Pesquisar">🔍</button>
+        <a class="profile" href="#" aria-label="Perfil"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="perfil"/></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-shot">
+        <h1>Bem-vindo ao Clone</h1>
+        <p>Uma réplica visual com amostra de filmes e trailers.</p>
+      </div>
+    </section>
+
+    <section class="movies" aria-labelledby="movies-title">
+      <h2 id="movies-title" class="sr-only">Filmes em destaque</h2>
+      <div class="container">
+        <div class="movie-grid" id="movie-grid">
+          <!-- Cards serão renderizados por JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="replica-footer">
+    <div class="container">
+      <p>&copy; 2026 Replica Netflix — Projeto Educacional</p>
+    </div>
+  </footer>
+
+  <!-- Modal de trailer -->
+  <div id="trailer-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Trailer">
+      <button id="modal-close" class="modal-close" aria-label="Fechar">✕</button>
+      <div class="video-wrap">
+        <iframe id="modal-iframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Trailer"></iframe>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/replica.js" defer></script>
+  
+</body>
+</html>

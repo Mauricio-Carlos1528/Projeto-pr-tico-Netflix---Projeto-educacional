@@ -4,48 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Netflix - Selecionar Perfil</title>
-    <link rel="stylesheet" href="STYLE.CSS" />
+    <link rel="stylesheet" href="css/STYLE.CSS" />
   </head>
   <body>
     <header>
       <h1>Quem está assistindo?</h1>
       <!-- Botão de alternância de tema (dark / light) -->
-      <button id="theme-toggle" aria-pressed="false" aria-label="Alternar tema" title="Alternar tema">
+      <button
+        id="theme-toggle"
+        aria-pressed="false"
+        aria-label="Alternar tema"
+        title="Alternar tema"
+      >
         🌙
       </button>
     </header>
 
     <main>
-      <!-- Estrutura semântica: ul não ordenada que contém uma lista ordenada de perfis -->
-      <ul class="profiles">
-          <ol>
-            <li class="profile">
+      <section class="profiles-section" aria-labelledby="perfis-title">
+        <h2 id="perfis-title" class="sr-only">Escolha um perfil</h2>
+        <!-- Lista semântica de perfis -->
+        <ul class="profiles">
+          <li class="profile">
+            <a class="profile-link" href="replica.html" aria-label="Entrar como Gabriel">
               <figure>
-                <img src="assets/perfil-1.jpg" alt="Avatar do Perfil 1"/>
+                <img src="assets/perfil-1.jpg" alt="Avatar do Gabriel" />
                 <figcaption>Gabriel</figcaption>
               </figure>
-            </li>
+            </a>
+          </li>
 
-            <li class="profile">
+          <li class="profile">
+            <a class="profile-link" href="replica.html" aria-label="Entrar como Mateus">
               <figure>
-                <img src="assets/perfil-2.jpg" alt="Avatar do Perfil 2"/>
+                <img src="assets/perfil-2.jpg" alt="Avatar do Mateus" />
                 <figcaption>Mateus</figcaption>
               </figure>
-            </li>
+            </a>
+          </li>
 
-            <li class="profile">
+          <li class="profile">
+            <a class="profile-link" href="replica.html" aria-label="Entrar como Andressa">
               <figure>
-                <img src="assets/perfil-3.jpg" alt="Avatar do Perfil 3"/>
-                <figcaption> Andressa</figcaption>
+                <img src="assets/perfil-3.jpg" alt="Avatar da Andressa" />
+                <figcaption>Andressa</figcaption>
               </figure>
-            </li>
-          </ol>
-      </ul>
+            </a>
+          </li>
+        </ul>
 
-         <section class="gerenciar">
-            <button type="button" class="botao-gerenciar">Gerenciar perfis</button>
-        </section>
-
+        <div class="gerenciar">
+          <button type="button" class="botao-gerenciar">Gerenciar perfis</button>
+        </div>
+      </section>
     </main>
 
     <footer>
@@ -54,4 +65,3 @@
     <script src="theme-toggle.js" defer></script>
   </body>
 </html>
-
